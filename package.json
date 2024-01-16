@@ -15,6 +15,7 @@
     "vue-router": "^4.2.5"
   },
   "dependencies": {
+    "@fontsource/open-sans": "^5.0.22",
     "@schedule-x/theme-default": "^1.7.0",
     "@schedule-x/vue": "^1.5.0"
   }

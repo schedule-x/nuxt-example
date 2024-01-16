@@ -53,3 +53,11 @@ const calendarApp = createCalendar({
     </ClientOnly>
   </div>
 </template>
+
+<style>
+.sx-vue-calendar-wrapper {
+  height: 700px;
+  max-height: 90vh;
+  width: 100%;
+}
+</style>
