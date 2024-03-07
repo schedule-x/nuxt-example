@@ -8,11 +8,15 @@ import {
   viewMonthAgenda,
 } from '@schedule-x/calendar'
 import '@schedule-x/theme-default/dist/index.css'
+import {createResizePlugin} from "@schedule-x/resize";
 
 const calendarApp = createCalendar({
   selectedDate: '2023-12-19',
   views: [viewDay, viewWeek, viewMonthGrid, viewMonthAgenda],
   defaultView: viewWeek.name,
+  plugins: [
+      createResizePlugin()
+  ],
   events: [
     {
       id: 1,
