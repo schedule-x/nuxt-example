@@ -1,5 +1,7 @@
 <template>
   <div>
+    <NuxtLink to="/hello">Visit hello page</NuxtLink>
+
     <ClientOnly>
       <AppCalendar />
     </ClientOnly>

@@ -53,7 +53,13 @@ const calendarApp = createCalendar({
 <template>
   <div>
     <ClientOnly>
-      <ScheduleXCalendar :calendar-app="calendarApp" />
+      <ScheduleXCalendar :calendar-app="calendarApp">
+        <template #timeGridEvent="{ calendarEvent }">
+          <div class="event">
+            {{ calendarEvent.title }}
+          </div>
+        </template>
+      </ScheduleXCalendar>
     </ClientOnly>
   </div>
 </template>
