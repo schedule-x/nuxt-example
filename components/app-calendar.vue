@@ -9,28 +9,19 @@ import {
 } from '@schedule-x/calendar'
 import '@schedule-x/theme-default/dist/index.css'
 import {createResizePlugin} from "@schedule-x/resize";
+import {createScrollControllerPlugin} from "@schedule-x/scroll-controller";
 
-const calendarApp = createCalendar({
+const calendarApp = ref(createCalendar({
   selectedDate: '2023-12-19',
   views: [viewDay, viewWeek, viewMonthGrid, viewMonthAgenda],
   defaultView: viewWeek.name,
   plugins: [
-      createResizePlugin()
+      createResizePlugin(),
+      createScrollControllerPlugin({
+        initialScroll: '08:00'
+      })
   ],
-  events: [
-    {
-      id: 1,
-      title: 'Event 1',
-      start: '2023-12-19',
-      end: '2023-12-19',
-    },
-    {
-      id: 2,
-      title: 'Event 2',
-      start: '2023-12-20 12:00',
-      end: '2023-12-20 13:00',
-    },
-  ],
+  events: [],
   calendars: {
     work: {
       colorName: 'work',
@@ -46,6 +37,25 @@ const calendarApp = createCalendar({
       },
     }
   }
+}))
+
+onMounted(() => {
+  setTimeout(() => {
+    calendarApp.value.events.set([
+      {
+        id: 1,
+        title: 'Event 1',
+        start: '2023-12-19',
+        end: '2023-12-19',
+      },
+      {
+        id: 2,
+        title: 'Event 2',
+        start: '2023-12-20 12:00',
+        end: '2023-12-20 13:00',
+      },
+    ])
+  }, 500)
 })
 
 </script>
@@ -54,11 +64,11 @@ const calendarApp = createCalendar({
   <div>
     <ClientOnly>
       <ScheduleXCalendar :calendar-app="calendarApp">
-        <template #timeGridEvent="{ calendarEvent }">
-          <div class="event">
-            {{ calendarEvent.title }}
-          </div>
-        </template>
+<!--        <template #timeGridEvent="{ calendarEvent }">-->
+<!--          <div class="event">-->
+<!--            {{ calendarEvent.title }}-->
+<!--          </div>-->
+<!--        </template>-->
       </ScheduleXCalendar>
     </ClientOnly>
   </div>

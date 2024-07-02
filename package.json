@@ -16,8 +16,9 @@
   },
   "dependencies": {
     "@fontsource/open-sans": "^5.0.22",
-    "@schedule-x/theme-default": "^1.21.0",
-    "@schedule-x/vue": "^1.43.2",
-    "@schedule-x/resize": "1.46.1"
+    "@schedule-x/theme-default": "^1.47.1",
+    "@schedule-x/vue": "^1.44.0",
+    "@schedule-x/resize": "1.47.1",
+    "@schedule-x/scroll-controller": "1.47.1"
   }
 }
