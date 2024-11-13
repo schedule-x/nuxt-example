@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import {ScheduleXCalendar} from "@schedule-x/vue";
 import {
   createCalendar,
@@ -10,8 +10,11 @@ import {
 import '@schedule-x/theme-default/dist/index.css'
 import {createResizePlugin} from "@schedule-x/resize";
 import {createScrollControllerPlugin} from "@schedule-x/scroll-controller";
+import {createEventsServicePlugin} from "@schedule-x/events-service";
 
-const calendarApp = ref(createCalendar({
+let eventsServicePlugin = createEventsServicePlugin();
+
+const calendarApp = shallowRef(createCalendar({
   selectedDate: '2023-12-19',
   views: [viewDay, viewWeek, viewMonthGrid, viewMonthAgenda],
   defaultView: viewWeek.name,
@@ -19,7 +22,8 @@ const calendarApp = ref(createCalendar({
       createResizePlugin(),
       createScrollControllerPlugin({
         initialScroll: '08:00'
-      })
+      }),
+      eventsServicePlugin,
   ],
   events: [],
   calendars: {

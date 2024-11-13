@@ -10,15 +10,17 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "nuxt": "^3.9.1",
+    "nuxt": "^3.13.2",
+    "typescript": "^5.5.3",
     "vue": "^3.4.10",
     "vue-router": "^4.2.5"
   },
   "dependencies": {
     "@fontsource/open-sans": "^5.0.22",
-    "@schedule-x/theme-default": "^1.47.1",
-    "@schedule-x/vue": "^1.44.0",
-    "@schedule-x/resize": "1.47.1",
-    "@schedule-x/scroll-controller": "1.47.1"
+    "@schedule-x/events-service": "^2.5.0",
+    "@schedule-x/resize": "^2.5.0",
+    "@schedule-x/scroll-controller": "^2.5.0",
+    "@schedule-x/theme-default": "^2.5.0",
+    "@schedule-x/vue": "^2.4.0"
   }
 }
